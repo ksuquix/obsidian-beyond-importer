@@ -22,6 +22,10 @@
 * Discord: ammo#7063 
 * Roll20: https://app.roll20.net/users/2990964/ammo
 
+* Name: Kyle Broekers
+* Discord: Cheshire#1092
+* Roll20: https://app.roll20.net/users/1491687/kyle-b
+
 ---
 
 ```
@@ -36,17 +40,22 @@ There are 2 versions of the Beyond Importer, one for the [5e Shaped Sheet](https
 At the moment this is still in development. But the main import is working, let me know if you find any errors or if you have any suggestions.
 
 ### How it works
-Go to the character page on DNDBeyond and put '/json' after the url, eg:
+Go to the character page on DNDBeyond and get the number at the end:
 
 ```
-https://www.dndbeyond.com/profile/Atheos/characters/1307201/json
+https://www.dndbeyond.com/profile/CheshireHat/characters/19278454
+```
+
+Then use that number with the following URL format, in order to get the new JSON format of your character sheet
+```
+https://character-service.dndbeyond.com/character/v3/character/19278454
 ```
 
 Copy the entire content of that page, and go to Roll20.
 In the Roll20 chat type the command `!beyond --import` and paste the copied contents after that, eg:
 
 ```
-!beyond --import {"character":{"id":1307201,"name":"Qroohk","player":"Atheos","age":null,"hair":null,"eyes":null,"skin":null,"height":null,"weight":null,"size":"Medium","alignment":"Lawful Good" ..........
+!beyond --import {"character":{"id":0,"success":true,"message":"Character successfully received.","data":{"id":19278454,"readonlyUrl":"https://dndbeyond.com/characters/19278454","avatarUrl":null,"frameAvatarUrl":null,"backdropAvatarUrl":null,"smallBackdropAvatarUrl":null,"largeBackdropAvatarUrl":null,"thumbnailBackdropAvatarUrl":null,"defaultBackdrop":......
 ```
 
 Your character will be imported now!
@@ -68,6 +77,10 @@ Roll20 Thread: https://app.roll20.net/forum/post/6248700/script-beta-beyondimpor
 --- 
 
 #### Changelog:
+**v0.5.0 - Kyle Broekers** 
+* adjusted script to work with new v3 character sheet format
+* various bug fixes
+
 **v0.4.0**
 * added configurable feature 'Spell Info in Attacks' (enabled by default) which adds more information to spell attacks
 * fixed items not being added to Armor Class #34
